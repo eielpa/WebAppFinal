@@ -1,0 +1,66 @@
+<div class="auth-container d-flex justify-content-center align-items-center">
+    <div class="auth-wrapper p-4 rounded shadow-sm">
+        <!-- Form di login -->
+        <ng-container *ngIf="isLoginMode; else registerForm">
+            <div class="auth-form login" [@fadeInOut]>
+                <form (submit)="login()">
+                    <h2 class="text-center mb-4">Accedi</h2>
+                    <div class="input-group mb-3">
+                        <label for="login-email" class="form-label">Email <span>*</span></label>
+                        <input type="email" id="login-email" [(ngModel)]="email" name="loginEmail" class="form-control" required />
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="login-password" class="form-label">Password <span>*</span></label>
+                        <div class="password-container position-relative">
+                            <input id="login-password" [(ngModel)]="password" name="loginPassword" class="form-control" required
+                                   [type]="passwordVisible ? 'text' : 'password'" (keydown)="preventCopyPaste($event)" />
+                            <span class="eye-icon position-absolute" (click)="togglePasswordVisibility()">👁</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Accedi</button>
+                    <p *ngIf="errorMessage" class="error-message text-danger mt-3">{{ errorMessage }}</p>
+                    <p class="switch-mode text-center mt-3" (click)="toggleMode()">Non hai un account? Registrati</p>
+                </form>
+            </div>
+        </ng-container>
+        <!-- Template per il form di registrazione -->
+        <ng-template #registerForm>
+            <div class="auth-form register" [@fadeInOut]>
+                <form (submit)="register()">
+                    <h2 class="text-center mb-4">Registrati</h2>
+                    <div class="input-group mb-3">
+                        <label for="register-id" class="form-label">ID Utente <span>*</span></label>
+                        <input type="text" id="register-id" [(ngModel)]="user.id" name="registerId" class="form-control" required />
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="register-firstName" class="form-label">Nome <span>*</span></label>
+                        <input type="text" id="register-firstName" [(ngModel)]="user.firstName" name="registerFirstName" class="form-control" required />
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="register-lastName" class="form-label">Cognome <span>*</span></label>
+                        <input type="text" id="register-lastName" [(ngModel)]="user.lastName" name="registerLastName" class="form-control" required />
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="register-dob" class="form-label">Data di Nascita <span>*</span></label>
+                        <input type="date" id="register-dob" [(ngModel)]="user.dob" name="registerDob" class="form-control" required />
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="register-email" class="form-label">Email <span>*</span></label>
+                        <input type="email" id="register-email" [(ngModel)]="user.email" name="registerEmail" class="form-control" required />
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="register-password" class="form-label">Password <span>*</span></label>
+                        <div class="password-container position-relative">
+                            <input id="register-password" [(ngModel)]="user.password" name="registerPassword" class="form-control" required
+                                   [type]="regPasswordVisible ? 'text' : 'password'" />
+                            <span class="eye-icon position-absolute" (click)="toggleRegPasswordVisibility()">👁</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Registrati</button>
+                    <p *ngIf="registrationMessage" class="error-message text-danger mt-3">{{ registrationMessage }}</p>
+                    <p class="switch-mode text-center mt-3" (click)="toggleMode()">Hai già un account? Accedi</p>
+                </form>
+            </div>
+        </ng-template>
+    </div>
+</div>

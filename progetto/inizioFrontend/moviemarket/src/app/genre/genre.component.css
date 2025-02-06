@@ -1,0 +1,101 @@
+/* Container principale della pagina genere */
+.genre-page {
+    padding: 80px;
+    background: linear-gradient(135deg, #001a17, #004d40);
+    color: white;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden; /* Evita scroll orizzontale */
+}
+
+/* Titolo della pagina */
+.genre-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: white;
+    width: 100%;
+}
+
+/* Contenitore delle card dei film */
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Stili per ciascuna card */
+app-moviecard {
+    border-radius: 12px;
+    padding: 5px;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* Effetto hover */
+app-moviecard:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Media query per schermi medi */
+@media (max-width: 1024px) {
+    .genre-page {
+        padding: 40px;
+    }
+
+    .genre-title {
+        font-size: 1.8rem;
+    }
+
+    .movie-list {
+        gap: 15px;
+    }
+}
+
+/* Media query per schermi piccoli */
+/* Media query per schermi piccoli */
+@media (max-width: 768px) {
+    .genre-title {
+        margin-top: 80px; /* Aggiungi margine superiore per spostare la scritta */
+    }
+
+    .movie-list {
+        display: flex;
+        flex-direction: column; /* Le card vanno in colonna */
+        align-items: center; /* Centra le card */
+        gap: 15px;
+    }
+
+    app-moviecard {
+        width: 90%; /* Rende le card più larghe in colonna */
+        max-width: 300px; /* Evita che diventino troppo grandi */
+    }
+}
+
+/* Disposizione in colonna su schermi molto piccoli */
+@media (max-width: 480px) {
+    .genre-title {
+        margin-top: 60px; /* Regola il margine superiore per schermi molto piccoli */
+    }
+
+    .movie-list {
+        gap: 10px;
+    }
+
+    app-moviecard {
+        width: 200%;
+        max-width: 250px; /* Evita che le card siano troppo larghe */
+        padding: 10px;
+    }
+}
+

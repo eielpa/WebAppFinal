@@ -1,0 +1,37 @@
+<app-navbar (searchEvent)="onSearch($event)"></app-navbar>
+
+<!-- Sezione film filtrati -->
+<div class="movie-section" *ngIf="filteredMovies.length > 0">
+    <h2>Risultati della ricerca</h2>
+    <div class="movie-list-wrapper">
+        <div class="movie-list row">
+            <app-moviecard *ngFor="let movie of filteredMovies" [movie]="movie" class="col-6 col-md-4 col-lg-3"></app-moviecard>
+        </div>
+    </div>
+</div>
+
+<!-- Sezione film recenti -->
+<div class="movie-section recent-movies">
+    <h2>Film Recenti</h2>
+    <div class="movie-list-wrapper">
+        <button class="arrow left btn" (click)="scroll(movieListRecent, 'left')">&#10094;</button>
+        <div class="movie-list" #movieListRecent>
+            <app-moviecard *ngFor="let movie of recentMovies" [movie]="movie" class="col-6 col-md-4 col-lg-3"></app-moviecard>
+        </div>
+        <button class="arrow right btn" (click)="scroll(movieListRecent, 'right')">&#10095;</button>
+    </div>
+</div>
+
+
+<!-- Sezione film con il rating più alto -->
+<div class="movie-section top-rated-movies">
+    <h2>Film con il Rating Più Alto</h2>
+    <div class="movie-list-wrapper">
+        <button class="arrow left btn" (click)="scroll(movieListTop, 'left')">&#10094;</button>
+        <div class="movie-list" #movieListTop>
+            <app-moviecard-toprated *ngFor="let movie of topRatedMovies; let i = index" [movie]="movie" [movieIndex]="i" class="col-6 col-md-4 col-lg-3"></app-moviecard-toprated>
+        </div>
+        <button class="arrow right btn" (click)="scroll(movieListTop, 'right')">&#10095;</button>
+    </div>
+</div>
+

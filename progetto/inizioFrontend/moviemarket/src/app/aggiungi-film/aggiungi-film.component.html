@@ -1,0 +1,51 @@
+<div class="page-wrapper">
+    <h1>Gestione Film</h1>
+    <div class="movie-wrapper">
+        <div class="cards-container">
+            <ng-container *ngIf="isAddMode; else removeForm">
+                <div class="card movie-form add">
+                    <h2>Aggiungi Film</h2>
+                    <form (ngSubmit)="submitForm()">
+                        <label for="title">Titolo:</label>
+                        <input id="title" [(ngModel)]="movie.title" name="title" required />
+
+                        <label for="description">Descrizione:</label>
+                        <textarea id="description" [(ngModel)]="movie.description" name="description" required></textarea>
+
+                        <label for="releaseYear">Anno di Uscita:</label>
+                        <input id="releaseYear" type="number" [(ngModel)]="movie.releaseYear" name="releaseYear" required />
+
+                        <label for="category">Categoria:</label>
+                        <select id="category" [(ngModel)]="movie.categoryId" name="category" required>
+                            <option *ngFor="let category of categories" [value]="category.id">
+                                {{ category.name }}
+                            </option>
+                        </select>
+
+                        <label for="rating">Valutazione (0-5):</label>
+                        <input id="rating" type="number" [(ngModel)]="movie.rating" name="rating" min="0" max="5" />
+
+                        <button type="submit">Aggiungi Film</button>
+                    </form>
+                    <p class="switch-mode" (click)="toggleMode()">Vuoi rimuovere un film? Clicca qui</p>
+                </div>
+            </ng-container>
+
+            <ng-template #removeForm>
+                <div class="card movie-form remove">
+                    <h2>Rimuovi Film</h2>
+                    <form (ngSubmit)="removeMovie()">
+                        <label for="movieId">ID Film:</label>
+                        <input id="movieId" type="number" [(ngModel)]="movieToDelete.id" name="movieId" required />
+
+                        <label for="movieName">Nome Film:</label>
+                        <input id="movieName" [(ngModel)]="movieToDelete.name" name="movieName" required />
+
+                        <button type="submit">Rimuovi Film</button>
+                    </form>
+                    <p class="switch-mode" (click)="toggleMode()">Vuoi aggiungere un film? Clicca qui</p>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

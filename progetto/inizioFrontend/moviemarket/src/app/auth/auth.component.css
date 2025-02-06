@@ -1,0 +1,176 @@
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 180vh;
+    background: linear-gradient(135deg, #001a17, #004d40); /* Sfondo sfumato verde e nero */
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.auth-wrapper {
+    position: relative;
+    width: 40%;
+    min-height: 400px;
+    background-color: rgba(0, 0, 0, 0.5); /* Sfondo nero semi-trasparente */
+    border-radius: 60px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Responsività per schermi piccoli */
+@media (max-width: 768px) {
+    .auth-wrapper {
+        width: 80%; /* Aumentato per adattarsi meglio a schermi più piccoli */
+        padding: 20px;
+        min-height: 300px;
+    }
+
+    .auth-form {
+        padding: 20px; /* Ridotto padding per migliorare l'adattamento */
+    }
+
+    .input-group input {
+        font-size: 16px; /* Ridotto font-size per dispositivi più piccoli */
+    }
+
+    .btn {
+        font-size: 16px; /* Bottone con testo più piccolo per mobile */
+    }
+}
+
+.auth-form {
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    box-sizing: border-box;
+}
+
+.auth-form.login {
+    opacity: 1;
+}
+
+.auth-form.register {
+    opacity: 1;
+}
+
+.input-group {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #00b894; /* Verde per il label */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 10px 14px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.15); /* Input con sfondo trasparente e chiaro */
+    font-size: 18px;
+    color: white;
+    outline: none;
+    transition: border 0.3s, background 0.3s;
+    box-sizing: border-box;
+}
+
+.input-group input:focus {
+    border: 1px solid #00b894; /* Verde al focus */
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: #00b894; /* Icona visibilità password verde */
+}
+
+.eye-icon:hover {
+    transform: translateY(-50%) scale(1.2);
+    color: #00b894; /* Verde hover */
+}
+
+.eye-icon:active {
+    transform: translateY(-50%) scale(0.9);
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px;
+    background-color: #00b894; /* Verde per il bottone */
+    color: white;
+    border-radius: 12px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s ease;
+    box-sizing: border-box;
+}
+
+.btn:hover {
+    background-color: #009974; /* Verde scuro per hover */
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.switch-mode {
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #00b894; /* Verde per il link switch mode */
+    transition: color 0.3s;
+}
+
+.switch-mode:hover {
+    color: #009974; /* Verde scuro per hover */
+}
+
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 15px;
+    }
+
+    .auth-wrapper {
+        padding: 20px;
+        width: 90%; /* Usa una larghezza maggiore per schermi più piccoli */
+    }
+
+    .input-group input {
+        font-size: 16px; /* Ridotto font-size per dispositivi più piccoli */
+    }
+
+    .btn {
+        font-size: 16px; /* Bottone con testo più piccolo per mobile */
+    }
+}

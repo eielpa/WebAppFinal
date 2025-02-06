@@ -1,0 +1,14 @@
+<div class="movie-card card shadow-sm" (click)="goToMovieDetails()">
+    <div class="card-header">
+        <img *ngIf="movieImage" [src]="movieImage" alt="{{ movie.title }}" class="card-img-top">
+    </div>
+    <div class="card-body">
+        <div class="card-info">
+            <p class="card-text"><strong>Rating: </strong>{{ movie.rating }}</p>
+        </div>
+    </div>
+    <!-- Footer con il titolo del film -->
+    <div class="card-footer">
+        <h5 class="card-title">{{ movie.title }}</h5>
+    </div>
+</div>

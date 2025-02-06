@@ -1,0 +1,99 @@
+/* Card */
+.movie-card {
+    position: relative;
+    flex: 0 0 auto;
+    width: 250px;  /* Aumentato per schermi grandi */
+    height: 220px; /* Aumentato per schermi grandi */
+    padding: 0; /* Rimuovi padding per fare spazio all'immagine */
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+    margin: 0 5px;
+}
+
+/* Immagine della card */
+.movie-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Fa in modo che l'immagine stia dietro al contenuto */
+}
+
+/* Al passaggio del mouse, ingrandisce la card con una leggera ombra */
+.movie-card:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Aumenta la larghezza e l'altezza del contenitore durante l'ingrandimento */
+.movie-list-wrapper:hover .movie-list {
+    transform: scale(1.05);
+}
+
+/* Footer con titolo, inizialmente nascosto */
+.card-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Sfondo scuro per il footer */
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    opacity: 0; /* Rende il footer invisibile */
+    max-height: 0; /* Inizialmente è completamente nascosto */
+    overflow: hidden; /* Nasconde il contenuto in eccesso */
+    transition: opacity 0.3s ease, max-height 0.3s ease; /* Transizione per l'animazione */
+    z-index: 2; /* Assicura che il footer stia sopra l'immagine */
+}
+
+/* Mostra il footer con il titolo al passaggio del mouse */
+.movie-card:hover .card-footer {
+    opacity: 1; /* Il footer diventa visibile */
+    max-height: 100px; /* Altezza massima espandibile */
+}
+
+/* Titolo del footer */
+.card-footer h5 {
+    font-size: 1.4rem; /* Aumentato per migliorare la visibilità */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ombra per migliorare il contrasto */
+    word-wrap: break-word; /* Rende il titolo a capo se troppo lungo */
+    white-space: normal; /* Consente il wrapping del testo */
+    line-height: 1.2; /* Spazio tra le righe, se necessario */
+    margin: 0; /* Rimuove il margine per evitare spazi indesiderati */
+}
+
+/* Media Queries per Responsività */
+
+/* Media query per dispositivi con schermi più piccoli */
+@media (max-width: 768px) {
+    .movie-card {
+        width: 200px; /* Ridurre la larghezza delle card su schermi piccoli */
+        height: 180px; /* Ridurre l'altezza */
+    }
+
+    .card-footer h5 {
+        font-size: 1.2rem; /* Ridurre la dimensione del titolo */
+    }
+}
+
+/* Media query per dispositivi con schermi ancora più piccoli */
+@media (max-width: 576px) {
+    .movie-card {
+        width: 150px; /* Ridurre ulteriormente la larghezza */
+        height: 150px; /* Ridurre l'altezza */
+    }
+
+    .card-footer h5 {
+        font-size: 1rem; /* Ulteriore riduzione della dimensione del titolo */
+    }
+}

@@ -1,0 +1,188 @@
+/* Navbar con sfumatura dal nero al verde scuro */
+.navbar {
+  background: linear-gradient(to top, #000000, #001a17); /* dal nero al verde scuro */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.4s ease-in-out; /* Transizione graduale */
+}
+
+/* Navbar Brand */
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+/* Link del menu */
+.navbar-nav .nav-link {
+  font-size: 1.1rem;
+  margin-right: 20px;
+  color: white;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover sugli item del menu */
+.navbar-nav .nav-link:hover {
+  color: #00bfae; /* Verde chiaro per il hover */
+  transform: translateY(-2px);
+}
+
+/* Dropdown */
+.navbar-nav .dropdown-menu {
+  background: linear-gradient(to top, #000000, #001a17); /* Sfondo simile alla navbar */
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Aggiunto un po' di ombra per un effetto di profondità */
+  max-height: 300px; /* Limita l'altezza del menu */
+  overflow-y: auto; /* Aggiunge la barra di scorrimento */
+}
+
+/* Elementi del dropdown */
+.navbar-nav .dropdown-item {
+  color: #adb5bd; /* Colore grigio chiaro per i testi */
+  padding: 10px 20px; /* Spaziatura migliorata */
+  transition: all 0.3s ease; /* Transizione per hover */
+}
+
+/* Hover sui dropdown items */
+.navbar-nav .dropdown-item:hover {
+  background-color: #00bfae; /* Colore verde per il hover */
+  color: white; /* Colore bianco per il testo */
+  transform: translateY(-2px); /* Leggera animazione di spostamento */
+}
+
+/* Freccetta personalizzata per il dropdown */
+.navbar-nav .dropdown-toggle {
+  position: relative; /* Necessario per posizionare la freccetta */
+  padding-right: 15px; /* Per fare spazio alla freccetta */
+}
+
+/* Rimuovi la freccetta di Bootstrap */
+.navbar-nav .dropdown-toggle::after {
+  display: none; /* Disabilita la freccetta di Bootstrap */
+}
+
+/* Freccetta personalizzata */
+.navbar-nav .dropdown-toggle .dropdown-arrow {
+  display: none; /* Nascondi la freccetta di default */
+  margin-left: 5px;
+  font-size: 0.9rem; /* Riduce la dimensione della freccetta */
+  color: #00bfae; /* Colore verde per la freccetta */
+}
+
+/* Mostra la freccetta solo quando il mouse è sopra l'elemento */
+.navbar-nav .dropdown:hover .dropdown-arrow {
+  display: inline-block; /* Mostra la freccetta solo al passaggio del mouse */
+  font-size: 0.8rem; /* Ulteriore riduzione della dimensione della freccetta */
+  margin-left: 3px; /* Riduce la distanza tra il testo e la freccetta */
+}
+
+/* Mobile: nascondi freccetta nel menu mobile */
+@media (max-width: 768px) {
+  /* La freccetta non sarà visibile sui dispositivi mobili */
+  .navbar-nav .dropdown-toggle .dropdown-arrow {
+    display: none !important; /* La freccetta non apparirà mai su mobile */
+  }
+}
+
+/* Barra di ricerca */
+.search-bar input {
+  padding: 10px;
+  border-radius: 25px;
+  border: 1px solid #003300;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #00bfae;
+  box-shadow: 0 0 5px rgba(0, 191, 174, 0.5);
+}
+
+/* Button effetti */
+.btn-primary,
+.btn-outline-light,
+.btn-outline-danger {
+  padding: 8px 20px; /* Spaziatura più ampia per un look più elegante */
+  border-radius: 30px; /* Bordi arrotondati */
+  font-size: 1rem; /* Dimensione del font coerente con la navbar */
+  transition: all 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Aggiunto effetto di ombra sui pulsanti */
+}
+
+.btn-primary:hover,
+.btn-outline-light:hover,
+.btn-outline-danger:hover {
+  transform: translateY(-3px); /* Spostamento leggero verso l'alto */
+  box-shadow: 0 6px 12px rgba(0, 191, 174, 0.3); /* Maggiore ombra per enfatizzare l'hover */
+}
+
+/* Card (contenuti dei film) */
+.card {
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Hover sulle card */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsività */
+/* Responsività */
+@media screen and (max-width: 768px) {
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.6rem;
+  }
+
+  .search-bar input {
+    width: 80%;
+  }
+
+  .btn {
+    padding: 8px 16px;
+  }
+
+  /* Allinea i pulsanti a destra */
+  .navbar-nav {
+    display: flex;
+    justify-content: flex-end; /* Allinea a destra */
+    width: 100%;
+  }
+
+  .navbar .btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+/* Responsività per i pulsanti wishlist, libreria e logout */
+@media screen and (max-width: 576px) {
+  .navbar-buttons {
+    display: flex;
+    flex-direction: column; /* Posiziona i pulsanti in colonna */
+    align-items: flex-end; /* Allinea a destra */
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .navbar-buttons .btn {
+    margin: 5px 0; /* Distanza tra i pulsanti */
+    width: 100%; /* Per fare in modo che i pulsanti occupino tutta la larghezza */
+  }
+
+  /* Modifica la barra di ricerca per evitare sovrapposizioni */
+  .search-bar {
+    width: 100%;
+  }
+}
+
+
+

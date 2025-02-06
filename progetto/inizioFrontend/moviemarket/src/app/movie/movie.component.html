@@ -1,0 +1,17 @@
+<div *ngFor="let genreData of moviesByGenre" class="genre-section">
+    <!-- Il titolo ora è cliccabile; lo stile cursor:pointer aiuta a far capire all'utente che è interattivo -->
+    <h2 (click)="goToGenre(genreData)" style="cursor:pointer;">
+        {{ genreData.genre }}
+    </h2>
+    <div class="movie-list-wrapper">
+        <button class="arrow left btn btn-dark" (click)="scroll(genreData.genre, 'left')">
+            &#10094;
+        </button>
+        <div class="movies-row" #movieList [attr.data-genre]="genreData.genre">
+            <app-moviecard *ngFor="let movie of genreData.movies" [movie]="movie"></app-moviecard>
+        </div>
+        <button class="arrow right btn btn-dark" (click)="scroll(genreData.genre, 'right')">
+            &#10095;
+        </button>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="movie-card" (click)="goToMovieDetails()">
+    <div class="card-right">
+        <h3>{{ movieIndex + 1 }}</h3>
+    </div>
+    <div class="card-left">
+        <p>{{ movie.title }}</p>
+    </div>
+    <div class="card-header">
+        <h3>{{ movie.title }}</h3>
+        <p class="rating"><strong>Rating: </strong>{{ movie.rating }}</p>
+    </div>
+    <div class="card-footer">
+        <p>{{ movie.description }}</p>
+    </div>
+</div>

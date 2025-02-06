@@ -1,0 +1,145 @@
+:host {
+  display: block;
+  background-color: #001a17;
+  color: #fff;
+  min-height: 150vh;
+}
+
+.movie-list-wrapper {
+  position: relative;
+  margin-top: 50px; /* Ridotto per avvicinare le sezioni */
+
+}
+
+.movie-section {
+  padding-top: 90px; /* Ridotto */
+}
+
+.movie-section h2 {
+  padding-left: 20px; /* Aggiungi un po' di spazio a sinistra */
+}
+
+.movie-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 80px; /* Ridotto per evitare sovrapposizioni */
+  padding: 15px;
+  width: 100%;
+  scroll-snap-type: none; /* Rimosso scroll-snap per evitare blocchi al passaggio */
+  scroll-behavior: smooth; /* Mantieni per lo scorrimento fluido */
+}
+
+.movie-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Pulsanti freccia */
+.arrow {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #001a17;
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 9999; /* Maggiore visibilità sopra gli altri contenuti */
+  display: flex;
+  align-items: center;   /* Allinea verticalmente */
+  justify-content: center; /* Allinea orizzontalmente */
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Rendi visibili le frecce quando la lista è visibile */
+.movie-list-wrapper:hover .arrow {
+  opacity: 1; /* Frecce visibili al passaggio del mouse sulla lista */
+}
+
+/* Modifica l'opacità per le frecce quando non sono visibili */
+.arrow {
+  opacity: 0; /* Le frecce sono invisibili di default */
+  transition: opacity 0.3s ease;
+}
+
+.arrow:hover {
+  background: #00b894;
+  opacity: 1; /* Le frecce diventano visibili al passaggio del mouse */
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+.movie-list.featured-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 40px;
+  padding: 15px;
+  width: 100%;
+  scroll-snap-type: none; /* Disabilita scroll-snap per una navigazione più fluida */
+}
+
+/* Modifiche per schermi di dimensioni più grandi (PC) */
+@media (min-width: 1200px) {
+
+  /* Sezione "Film Recenti" */
+  .recent-movies .movie-list {
+    gap: 50px; /* Riduci la distanza tra le card per "Film Recenti" */
+  }
+
+  .recent-movies .movie-list > app-moviecard {
+    width: 15%; /* Card più strette per una disposizione più compatta */
+  }
+
+  /* Sezione "Film con il Rating Più Alto" */
+  .top-rated-movies .movie-list {
+    gap: 0px; /* Aumenta la distanza tra le card per i film con rating alto */
+  }
+
+  .top-rated-movies .movie-list > app-moviecard-toprated {
+    width: 22%; /* Card leggermente più larghe per la sezione con rating alto */
+  }
+}
+
+
+/* Modifiche per schermi di medie dimensioni (tablet) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .movie-list {
+    gap: 10px; /* Aumentata distanza tra le card */
+  }
+
+  .movie-list > app-moviecard,
+  .movie-list > app-moviecard-toprated {
+    width: 30%; /* Card un po' più larghe per tablet */
+  }
+}
+
+/* Modifiche per schermi piccoli (mobile) */
+@media (max-width: 767px) {
+  .movie-list {
+    gap: 60px; /* Ridotto per evitare sovrapposizioni */
+  }
+
+  .movie-list > app-moviecard,
+  .movie-list > app-moviecard-toprated {
+    width: 45%; /* Card larghe quasi il 50% */
+  }
+
+  .movie-section h2 {
+    font-size: 1.5rem; /* Testo più piccolo per schermi piccoli */
+    padding-left: 10px;
+  }
+
+  .movie-section:nth-child(3) .movie-list > app-moviecard-toprated {
+    width: 75%; /* Le card occupano il 100% della larghezza disponibile */
+
+  }
+}
