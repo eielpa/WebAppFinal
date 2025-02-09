@@ -1,0 +1,125 @@
+/* personal-library.component.css */
+
+/* Il componente come host, con background a gradiente e impostazioni di base */
+:host {
+    display: block;
+    background: linear-gradient(135deg, #001a17, #004d40); /* Sfondo sfumato verde e nero */
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* Contenitore principale ispirato a .auth-wrapper */
+.personal-library {
+    background-color: rgba(0, 0, 0, 0.5); /* Sfondo nero semi-trasparente */
+    padding: 60px;
+    border-radius: 60px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Titolo principale */
+.personal-library h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #00e676; /* Verde brillante */
+    text-shadow: 0 0 15px rgba(0, 230, 118, 0.8); /* Bagliore */
+}
+
+/* Container della tabella responsive */
+.table-responsive {
+    margin-top: 40px;
+}
+
+/* Stile della tabella */
+.table {
+    background-color: transparent;
+    color: white;
+    width: 100%;
+}
+
+.table thead th {
+    border-bottom: 2px solid #00b894; /* Accento verde per l'header */
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* Titolo del film con maggiore visibilità */
+.table tbody td:first-child {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00e676; /* Verde brillante */
+    text-shadow: 0 0 10px rgba(0, 230, 118, 0.8); /* Effetto bagliore */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Stile righe della tabella */
+.table tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background 0.3s;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Personalizzazione dei messaggi di errore */
+.alert {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: none;
+    color: white;
+    margin-top: 20px;
+}
+
+/* Contenitore del pulsante di download per posizionarlo correttamente */
+.download-container {
+    text-align: center; /* Centra il contenuto */
+    margin-top: 4px; /* Distanza dal contenuto sopra */
+}
+
+/* Pulsante Download ispirato allo stile .btn dei CSS auth */
+.btn-primary {
+    background-color: #00b894;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    padding: 10px 20px;
+    transition: background 0.3s, transform 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: #009974;
+    transform: scale(1.05);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* Responsive adjustments per schermi più piccoli */
+@media (max-width: 768px) {
+    .personal-library {
+        padding: 20px;
+        border-radius: 30px;
+    }
+
+    .personal-library h2 {
+        font-size: 1.75rem;
+    }
+
+    .btn-primary {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    .table tbody td:first-child {
+        font-size: 18px; /* Riduzione del font-size su mobile */
+    }
+}

@@ -1,0 +1,136 @@
+/* Sfondo dell'intero componente */
+:host {
+    display: block;
+    background: linear-gradient(135deg, #001a17, #004d40); /* Sfondo verde scuro */
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* Contenitore principale della wishlist */
+.wishlist-container {
+    background: rgba(0, 0, 0, 0.4) !important; /* Effetto scuro opaco */
+    backdrop-filter: blur(10px)!important; /* Effetto vetro */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 900px;
+    margin: 40px auto;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Bordo leggero */
+}
+
+/* Titolo della wishlist */
+.wishlist-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #00e676; /* Verde brillante */
+    text-shadow: 0 0 15px rgba(0, 230, 118, 0.5); /* Effetto bagliore */
+    margin-bottom: 30px;
+}
+
+/* Contenitore della tabella responsive */
+.table-responsive {
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Stile della tabella */
+.table {
+    background: rgba(0, 0, 0, 0.3); /* Sfondo scuro traslucido */
+    color: white;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Stile per l'header della tabella */
+.table thead th {
+    background-color: rgba(0, 128, 96, 0.7); /* Verde scuro traslucido */
+    color: white;
+    padding: 15px;
+    font-size: 1.1rem;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+/* Stile delle celle */
+.table tbody td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+/* Evidenziazione del titolo del film */
+.table tbody td:first-child {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #00e676;
+    text-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+}
+
+/* Effetto hover sulla riga */
+.table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background 0.3s;
+}
+
+/* Pulsanti */
+button {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+button.btn-primary {
+    background-color: #00e676;
+    color: black;
+}
+
+button.btn-primary:hover {
+    background-color: #00c853;
+    transform: scale(1.05);
+}
+
+button.btn-danger {
+    background-color: #d32f2f;
+    color: white;
+}
+
+button.btn-danger:hover {
+    background-color: #b71c1c;
+}
+
+/* Messaggio quando la wishlist è vuota */
+p.empty-message {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #bdbdbd;
+    margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .wishlist-container {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .wishlist-title {
+        font-size: 1.5rem;
+    }
+
+    .table tbody td {
+        padding: 10px;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 10px 16px;
+    }
+}

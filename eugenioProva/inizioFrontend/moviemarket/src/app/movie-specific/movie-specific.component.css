@@ -1,0 +1,156 @@
+:host {
+    display: block;
+    background-color: #001a17;
+    color: #fff;
+    min-height: 100vh;
+    padding: 0;
+}
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+p {
+    padding-top: 10px;
+    font-size: 1.2rem;
+    color: #ccc;
+    line-height: 1.6;
+    max-width: 700px;
+}
+
+.info-btn {
+    padding: 12px 35px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    background-color: #34495e;
+    color: white;
+    margin-left: 10px;
+}
+
+.info-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0,191,174,0.6), 0 0 15px rgba(0,255,255,0.4);
+}
+
+/* Sezione film */
+.movie-section {
+    margin-top: 50px;
+}
+
+.movie-list-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.movie-list {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.movie-list::-webkit-scrollbar {
+    display: none;
+}
+
+.arrow {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 8px;
+    opacity: 0;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.movie-list-wrapper:hover .arrow {
+    opacity: 1;
+}
+
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
+
+/* Stili per la sezione Rating */
+.rating-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.star-rating {
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.star-rating .star {
+    transition: color 0.2s;
+    margin-right: 5px;
+}
+
+.star-rating .star.filled {
+    color: gold;
+}
+
+.star-rating button {
+    margin-left: 10px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}

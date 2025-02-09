@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">MM</a>
+
+        <!-- Icona del menu mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu principale -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/">Home</a>
+                </li>
+
+                <!-- Dropdown Generi -->
+                <li class="nav-item dropdown" [class.open]="isDropdownOpen">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" (click)="toggleDropdown()">
+                        Generi
+                        <span class="dropdown-arrow">&#9660;</span> <!-- Freccetta visibile solo al passaggio del mouse -->
+                    </a>
+                    <ul class="dropdown-menu" [class.show]="isDropdownOpen">
+                        <li *ngFor="let category of categories" (click)="onCategoryChange(category.id)">
+                            <a class="dropdown-item">{{ category.name }}</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/films">Film</a>
+                </li>
+
+                <!-- Sezione Admin -->
+                <ng-container *ngIf="isAdmin">
+                    <li class="nav-item">
+                        <button class="btn btn-primary admin-button" routerLink="/add-movie">Gestisci Film</button>
+                    </li>
+                </ng-container>
+            </ul>
+
+            <!-- Barra di ricerca allineata a sinistra e pulsanti a destra -->
+            <div class="d-flex w-100">
+                <div class="search-bar me-auto">
+                    <input type="text" class="form-control me-2" (input)="onSearch($event)" placeholder="Cerca un film..." />
+                </div>
+
+                <!-- Azioni utente allineate a destra -->
+                <div class="d-flex ms-3">
+                    <button *ngIf="!isLoggedIn()" class="btn btn-outline-light" routerLink="/auth">Accedi</button>
+
+                    <ng-container *ngIf="isLoggedIn()">
+                        <span class="navbar-text me-2"> {{ nickname }}</span>
+                        <div class="navbar-nav navbar-buttons">
+                            <button class="btn btn-primary" (click)="goToWishlist()">Wishlist</button>
+                            <button class="btn btn-primary" (click)="goToLibrary()">Libreria</button>
+                            <button class="btn btn-primary" (click)="logout()">Logout</button>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

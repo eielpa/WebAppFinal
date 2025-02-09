@@ -1,0 +1,29 @@
+<article class="wishlist-container p-4 shadow-sm bg-light rounded">
+    <h2 class="text-center mb-4">La tua Wishlist</h2>
+
+    <!-- Messaggio di errore -->
+    <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+    <!-- Tabella wishlist -->
+    <table *ngIf="wishlist && wishlist.length > 0" class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Titolo</th>
+            <th>Azioni</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of wishlist">
+            <td>{{ item.movieId }}</td>
+            <td>
+                <!-- Pulsanti Acquista e Rimuovi -->
+                <button (click)="pay(item.movieId, item.id)" class="btn btn-primary btn-sm mr-2">Acquista</button>
+                <button (click)="remove(item.id)" class="btn btn-danger btn-sm">Rimuovi</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Messaggio quando la wishlist è vuota -->
+    <p *ngIf="!wishlist || wishlist.length === 0" class="text-center text-muted">La tua wishlist è vuota.</p>
+</article>

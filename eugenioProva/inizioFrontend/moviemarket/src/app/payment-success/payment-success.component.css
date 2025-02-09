@@ -1,0 +1,31 @@
+:host {
+    display: block;
+    padding: 1rem;
+}
+
+/* Stili specifici per l'header */
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Maggiori dimensioni del font su dispositivi medi e superiori */
+@media (min-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Bottone responsive: su dispositivi molto piccoli, il bottone occupa quasi tutta la larghezza */
+button {
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+/* Su dispositivi più grandi, il bottone mantiene la larghezza definita da Bootstrap */
+@media (min-width: 576px) {
+    button {
+        width: auto;
+    }
+}

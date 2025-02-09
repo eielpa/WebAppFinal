@@ -1,0 +1,182 @@
+/* Contenitore principale: sfondo scuro sfumato e centrazione dei contenuti */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #001a17, #004d40);
+    padding: 20px;
+    box-sizing: border-box;
+    color: white;
+}
+
+/* Se presente, nasconde il titolo "Gestione Film" */
+h1 {
+    display: none;
+}
+
+/* Contenitore dei form per i film */
+.movie-wrapper {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Container per le card */
+.cards-container {
+    width: 100%;
+}
+
+/* Stile delle card (ispirato all'auth-wrapper) */
+.card {
+    background-color: rgba(0, 0, 0, 0.7); /* Più scuro rispetto alla versione precedente */
+    border-radius: 60px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    margin: 20px auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effetto hover per dare dinamicità */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Accento per le card: bordo superiore in verde */
+.movie-form.add {
+    border-top: 5px solid #00b894;
+}
+.movie-form.remove {
+    border-top: 5px solid #00b894;
+}
+
+/* Layout del form: colonne verticali */
+.movie-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Stile dei label: verde brillante e leggibili */
+label {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    color: #00b894;
+    display: block;
+}
+
+/* Stile per input, textarea e select (regola di base) */
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.3); /* Sfondo scuro */
+    font-size: 18px;
+    color: white;
+    outline: none;
+    transition: border 0.3s ease, background 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* Abilita il ridimensionamento verticale per le textarea */
+textarea {
+    resize: vertical;
+}
+
+/* Stile per i bottoni: design in linea con i pulsanti dell'auth */
+button {
+    display: inline-block;
+    padding: 14px;
+    background-color: #00b894;
+    color: white;
+    border-radius: 12px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s ease;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #009974;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Testo per lo switch tra modalità "aggiungi" e "rimuovi" */
+.switch-mode {
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #00b894;
+    transition: color 0.3s;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.switch-mode:hover {
+    color: #009974;
+}
+
+/* Aggiungiamo regole specifiche per .form-control e .form-select per garantire lo stesso comportamento */
+
+/* Per gli input e textarea che usano .form-control (es. Titolo e Descrizione) */
+input.form-control,
+textarea.form-control {
+    background: rgba(0, 0, 0, 0.3) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: border 0.3s ease, background 0.3s ease !important;
+}
+
+input.form-control:focus,
+textarea.form-control:focus {
+    border: 1px solid #00b894 !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Per il select che usa .form-select */
+select.form-select {
+    background: rgba(0, 0, 0, 0.3) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: border 0.3s ease, background 0.3s ease !important;
+}
+
+select.form-select:focus {
+    border: 1px solid #00b894 !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Responsività per schermi più piccoli */
+@media (max-width: 768px) {
+    .card {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea,
+    select {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 12px;
+    }
+}

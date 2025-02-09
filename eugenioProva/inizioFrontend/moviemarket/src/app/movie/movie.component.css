@@ -1,0 +1,157 @@
+:host {
+    display: block;
+    background-color: #001a17; /* Verde petrolio molto scuro, quasi nero */
+    color: #fff;
+    min-height: 150vh;
+    width: 100%;
+    padding-top: 40px;
+}
+
+/* Wrapper per ogni sezione con frecce */
+.movie-list-wrapper {
+    position: relative;
+    width: 100%; /* Assicurati che il wrapper occupi tutta la larghezza disponibile */
+}
+
+/* Container delle card in orizzontale */
+.movies-row {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px;
+    scrollbar-width: none;
+}
+
+/* Nasconde la scrollbar */
+.movies-row::-webkit-scrollbar {
+    display: none;
+}
+
+/* Pulsanti freccia */
+.arrow {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #001a17;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 20; /* Frecce sopra le card */
+    display: flex;
+    align-items: center;   /* Allinea verticalmente */
+    justify-content: center; /* Allinea orizzontalmente */
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Rendi visibili le frecce quando la lista è visibile */
+.movie-list-wrapper:hover .arrow {
+    opacity: 1; /* Frecce visibili al passaggio del mouse sulla lista */
+}
+
+/* Modifica l'opacità per le frecce quando non sono visibili */
+.arrow {
+    opacity: 0; /* Le frecce sono invisibili di default */
+    transition: opacity 0.3s ease;
+}
+
+.arrow:hover {
+    background: #00b894;
+    opacity: 1; /* Le frecce diventano visibili al passaggio del mouse */
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
+
+/* Sezione genere */
+.genre-section h2 {
+    padding-top: 40px;
+    margin-left: 30px; /* Sposta il titolo un po' verso destra */
+    margin-bottom: 10px; /* Distanza tra il titolo e le card */
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff; /* Colore bianco per il titolo */
+    letter-spacing: 1px; /* Spaziatura tra le lettere */
+    transition: color 0.3s ease, text-shadow 0.3s ease, text-stroke 0.3s ease;
+}
+
+.genre-section h2:hover {
+    color: #00bfae; /* Colore più vivace */
+    text-shadow: 0 4px 6px rgba(0, 191, 174, 0.6), 0 0 10px rgba(0, 255, 255, 0.8); /* Ombra e bagliore */
+    text-stroke: 1px rgba(0, 191, 174, 1); /* Effetto di contorno luminoso */
+}
+
+/* Responsività per schermi più piccoli */
+@media (max-width: 1024px) {
+    /* Ridurre la dimensione del titolo per tablet e schermi più piccoli */
+    .genre-section h2 {
+        font-size: 1.5rem;
+        margin-left: 20px;
+    }
+
+    /* Adattare la larghezza delle frecce per schermi più piccoli */
+    .arrow {
+        font-size: 2rem;
+        width: 45px;
+        height: 45px;
+    }
+
+    /* Aumentare la distanza tra i film su schermi più piccoli */
+    .movies-row {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mantenere il layout orizzontale anche su schermi piccoli */
+    .movies-row {
+        flex-wrap: nowrap;  /* Mantieni le card in una sola riga */
+        gap: 15px;
+    }
+
+    /* Adattare la larghezza delle card per schermi più piccoli */
+    app-moviecard {
+        width: 45%; /* Le card occupano il 45% dello spazio disponibile */
+        max-width: 250px; /* Evita che le card siano troppo larghe */
+    }
+
+    .arrow {
+        font-size: 1.8rem;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ulteriore adattamento per schermi molto piccoli */
+    .genre-section h2 {
+        font-size: 1.2rem;
+        margin-left: 15px;
+    }
+
+    .movies-row {
+        gap: 10px;
+    }
+
+    app-moviecard {
+        width: 100%; /* Le card occupano tutta la larghezza su schermi molto piccoli */
+        max-width: 250px; /* Evita che le card siano troppo larghe */
+    }
+
+    .arrow {
+        font-size: 1.5rem;
+        width: 35px;
+        height: 35px;
+    }
+}

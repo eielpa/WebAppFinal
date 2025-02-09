@@ -1,0 +1,45 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="personal-library">
+                <h2 class="mb-4">La tua Libreria Personale</h2>
+
+                <!-- Visualizza eventuali errori -->
+                <div *ngIf="errorMessage" class="alert alert-danger">
+                    {{ errorMessage }}
+                </div>
+
+                <!-- Visualizza la tabella solo se esistono dei film -->
+                <div *ngIf="movies && movies.length">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Titolo</th>
+                                <th>Download</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let movie of movies">
+                                <td>{{ movie.title }}</td>
+                                <td>
+                                    <div class="download-container">
+                                        <button (click)="downloadMovie(movie)" class="btn btn-primary">
+                                            Download
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Messaggio se la libreria è vuota -->
+                <div *ngIf="movies && !movies.length" class="alert alert-info">
+                    Nessun film presente nella tua libreria.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+/* Footer generale */
+footer {
+    background: linear-gradient(to top, #000000, #001a17);
+    color: white;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenuto del footer */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Sezioni interne del footer */
+.footer-section {
+    flex: 1 1 250px;
+    margin: 20px;
+    text-align: left;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #00bfae;
+}
+
+.footer-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Stile per la lista dei nomi del team */
+.footer-section.team ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section.team ul li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-section.team ul li:hover {
+    color: #00bfae;
+    cursor: pointer;
+}
+
+/* Testo del copyright */
+.footer-section p {
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* Responsive per dispositivi con larghezza max 768px */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-section {
+        margin: 10px 0;
+    }
+}
+

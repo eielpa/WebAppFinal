@@ -1,0 +1,121 @@
+/* Wrapper per la card */
+.movie-card {
+    position: relative;
+    display: flex;
+    flex-direction: row; /* Disposizione orizzontale */
+    width: 300px;
+    height: 180px;
+    border-radius: 15px; /* Bordo più arrotondato */
+    overflow: hidden;
+    background-color: #121212; /* Sfondo scuro */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombra più morbida */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+}
+
+/* La parte sinistra (titolo del film) */
+.movie-card .card-left {
+    width: 50%; /* Occupa metà della card */
+    height: 100%;
+    background-color: #1a1a1a; /* Sfondo leggermente più scuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff; /* Testo bianco per contrasto */
+    padding: 10px;
+    z-index: 1;
+}
+
+/* La parte destra (numero crescente) */
+.movie-card .card-right {
+    width: 50%; /* Occupa l'altra metà */
+    height: 100%; /* Occupa tutta la metà destra */
+    background-color: #003d33; /* Colore di base per il lato destro */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* Il font-size sarà impostato direttamente sul tag <h3> */
+    background: linear-gradient(to bottom, #004d40, black); /* Gradiente verde scuro → nero */
+    z-index: 2;
+}
+
+/* Numero nella parte destra (ora targettizzato su <h3>) */
+.movie-card .card-right h3 {
+    font-size: 8rem; /* Modifica questo valore per cambiare la grandezza */
+    font-weight: bold;
+    background: black;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+/* Titolo nella parte sinistra */
+.movie-card .card-left p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    flex-grow: 1; /* Permette al titolo di adattarsi */
+}
+
+/* Al passaggio del mouse, nascondi la numerazione e il titolo */
+.movie-card:hover .card-left,
+.movie-card:hover .card-right {
+    opacity: 0;
+}
+
+/* Al passaggio del mouse, ingrandisce la card */
+.movie-card:hover {
+    transform: scale(1.1); /* Ingrandisce meno per un effetto più morbido */
+    z-index: 10;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Header della card: titolo e rating */
+.card-header {
+    position: absolute;
+    top: 10px; /* Posiziona il titolo e rating nella parte alta */
+    left: 10px;
+    right: 10px;
+    font-size: 0.9rem;
+    color: #fff; /* Colore bianco per il titolo e rating */
+    visibility: hidden; /* Visibile solo al passaggio del mouse */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Mostra il titolo e il rating al passaggio del mouse */
+.movie-card:hover .card-header {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Footer della card: contiene la descrizione */
+.card-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Sfondo scuro trasparente */
+    color: #fff;
+    padding: 0 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+/* Mostra il footer con la descrizione al passaggio del mouse */
+.movie-card:hover .card-footer {
+    max-height: 80px;
+    padding: 10px;
+    opacity: 1;
+}
+
+/* (Opzionale) Transizione per l'ingrandimento delle card */
+.movie-card:hover {
+    transform: scale(1.1);
+}
